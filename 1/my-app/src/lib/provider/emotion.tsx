@@ -1,12 +1,12 @@
-'use client';
-
+import React from 'react';
 import { ThemeProvider } from '@emotion/react';
-import React, { PropsWithChildren } from 'react';
 import theme from '../styles/theme';
 
-const EmotionProvider = ({ children }: PropsWithChildren) => {
+const EmotionProvider = ({ children }: React.PropsWithChildren) => {
   return (
-    <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    <ThemeProvider theme={theme}>
+      {children}
+    </ThemeProvider>
   );
 };
 

@@ -1,7 +1,7 @@
-import colors from './color';
+import color from './color';
 
 const theme = {
-  colors,
+  color,
 };
 
 export default theme;

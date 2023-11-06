@@ -1,9 +1,5 @@
-const neutral = {
-  black: '#333',
+const color = {
+  white: '#ffffff',
 };
 
-const colors = {
-  neutral,
-};
-
-export default colors;
+export default color;
