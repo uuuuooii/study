@@ -1,8 +1,17 @@
-import React from 'react';
+'use client';
 
-const index = () => {
+import React, { useEffect } from 'react';
+
+const Main = () => {
+  useEffect(() => {
+    const getPost = async () => {
+      const res = await fetch('http://localhost:3000/api/posts');
+      console.log(res.json());
+    };
+    getPost();
+  }, []);
   return (
-    <div>index</div>
+    <div>{ }</div>
   );
 };
-export default index;
+export default Main;
