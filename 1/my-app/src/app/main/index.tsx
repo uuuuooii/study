@@ -13,7 +13,7 @@ const Main = () => {
     getBlogData();
   }, []);
   return (
-    <div>Main</div>
+    <div style={{ height: '200vh', paddingTop: '150px' }}>Main</div>
   );
 };
 export default Main;
