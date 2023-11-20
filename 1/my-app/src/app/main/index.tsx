@@ -2,6 +2,8 @@
 
 import React, { cache, useEffect } from 'react';
 import getBlogContents from '@/lib/api/blog';
+import Visual from './visual';
+import Section from './style';
 
 const Main = () => {
   useEffect(() => {
@@ -12,8 +14,11 @@ const Main = () => {
 
     getBlogData();
   }, []);
+
   return (
-    <div style={{ height: '200vh', paddingTop: '150px' }}>Main</div>
+    <Section>
+      <Visual />
+    </Section>
   );
 };
 export default Main;

@@ -12,6 +12,7 @@ export const Header = styled.header<{ isShow: boolean }>`
   padding: 0 33px;
   transition: opacity 0.2s ease-out, background-color 0.5s ease-out,
     color 0.5s ease-out, max-height 1s ease-out;
+  z-index: 1;
 
   ${({ isShow }) =>
     isShow &&
