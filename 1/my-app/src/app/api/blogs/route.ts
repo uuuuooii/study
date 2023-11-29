@@ -6,8 +6,8 @@ export const GET = async () => {
   try {
     await connect();
 
-    const posts = await Post.find();
-    return new NextResponse(JSON.stringify(posts), { status: 200 });
+    const blogs = await Post.find();
+    return new NextResponse(JSON.stringify(blogs), { status: 200 });
   } catch (error) {
     return new NextResponse('server error', { status: 500 });
   }

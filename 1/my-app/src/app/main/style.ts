@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
 
-const Section = styled.section`
-  height: 200vh;
+export const VisualSection = styled.section`
   padding-top: 88px;
 `;
-export default Section;
+
+export const MusicSection = styled.section`
+  padding: 88px 0;
+`;

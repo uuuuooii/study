@@ -1,24 +1,36 @@
 'use client';
 
-import React, { cache, useEffect } from 'react';
+import React, { cache, useEffect, useState } from 'react';
 import getBlogContents from '@/lib/api/blog';
 import Visual from './visual';
-import Section from './style';
+import LestElement from '@/components/listElement';
+import Inner from '@/components/inner';
+import { PostContentPsops } from '@/lib/api/dto';
+import * as S from './style';
 
 const Main = () => {
+  const [musicData, setMusicData] = useState<PostContentPsops[]>([]);
+
   useEffect(() => {
-    const getBlogData = cache(async () => {
+    const getMusicData = cache(async () => {
       const res = await getBlogContents();
-      console.log(res.data);
+      setMusicData(res.data);
     });
 
-    getBlogData();
+    getMusicData();
   }, []);
 
   return (
-    <Section>
-      <Visual />
-    </Section>
+    <div>
+      <S.VisualSection>
+        <Visual />
+      </S.VisualSection>
+      <S.MusicSection>
+        <Inner>
+          <LestElement musicData={musicData} />
+        </Inner>
+      </S.MusicSection>
+    </div>
   );
 };
 export default Main;
