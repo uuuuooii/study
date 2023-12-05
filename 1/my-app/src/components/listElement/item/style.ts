@@ -34,7 +34,7 @@ export const Icon = styled.div`
 `;
 
 export const Title = styled.h4`
-  ${({ theme }) => theme.typography.size.title.t01}
+  ${({ theme }) => theme.typography.size.title.t03}
 `;
 
 export const Desc = styled.h4`

@@ -25,11 +25,12 @@ const Main = () => {
       <S.VisualSection>
         <Visual />
       </S.VisualSection>
-      <S.MusicSection>
+      <section>
         <Inner>
+          <S.Title>추천 앨범</S.Title>
           <LestElement musicData={musicData} />
         </Inner>
-      </S.MusicSection>
+      </section>
     </div>
   );
 };

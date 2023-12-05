@@ -1,18 +1,19 @@
 import React from 'react';
-import Image from 'next/image';
 import * as S from './style';
 
 const Visual = () => {
   return (
-    <section>
-      <S.Picture>
-        <Image src="/images/visual/22_Instacart_Tee.jpg" alt="visual" fill />
-      </S.Picture>
+    <S.Section>
       <S.TitleWrap>
-        <S.Title>Music</S.Title>
-        <S.Desc>Music is my life</S.Desc>
+        <S.Round>
+          <S.Title>Music</S.Title>
+        </S.Round>
+        <div>
+          <S.Desc>Music is my life</S.Desc>
+          <p> 특별한 일상을</p>
+        </div>
       </S.TitleWrap>
-    </section>
+    </S.Section>
   );
 };
 

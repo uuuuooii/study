@@ -21,7 +21,8 @@ const globals = css`
 
   html,
   body {
-    background: #000;
+    background: #141414;
+    height: 200vh;
   }
   div,
   span,
