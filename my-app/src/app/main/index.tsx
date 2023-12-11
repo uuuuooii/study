@@ -10,7 +10,7 @@ import * as S from './style';
 
 const Main = () => {
   const [musicData, setMusicData] = useState<PostContentPsops[]>([]);
-
+  console.log(musicData);
   useEffect(() => {
     const getMusicData = cache(async () => {
       const res = await getBlogContents();
