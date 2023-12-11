@@ -1,0 +1,18 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["next/core-web-vitals", "airbnb"],
+  "rules": {
+    "arrow-body-style": "off",
+    "eol-last": "off",
+    "react/jsx-filename-extension": "off",
+    "react/function-component-definition": "off",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "implicit-arrow-linebreak": "off",
+    "operator-linebreak": "off"
+  }
+}
