@@ -1,7 +1,7 @@
 'use client';
 
 import React, { cache, useEffect, useState } from 'react';
-import getBlogContents from '@/lib/api/blog';
+import { getMusicContents } from '@/lib/api/music';
 import Visual from './visual';
 import LestElement from '@/components/listElement';
 import Inner from '@/components/inner';
@@ -10,10 +10,10 @@ import * as S from './style';
 
 const Main = () => {
   const [musicData, setMusicData] = useState<PostContentPsops[]>([]);
-  console.log(musicData);
+
   useEffect(() => {
     const getMusicData = cache(async () => {
-      const res = await getBlogContents();
+      const res = await getMusicContents();
       setMusicData(res.data);
     });
 

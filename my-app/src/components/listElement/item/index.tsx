@@ -12,7 +12,7 @@ interface ItemProps {
 const Item = ({ item }: ItemProps) => {
   return (
     <li>
-      <Link href="#!">
+      <Link href={`main/${item._id}`}>
         <S.Figure>
           <S.ImageWrap>
             <Image src={item.img} alt="music" width={180} height={180} />

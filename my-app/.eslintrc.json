@@ -13,6 +13,8 @@
     "import/extensions": "off",
     "import/no-unresolved": "off",
     "implicit-arrow-linebreak": "off",
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "no-underscore-dangle": "off",
+    "comma-dangle": "off"
   }
 }

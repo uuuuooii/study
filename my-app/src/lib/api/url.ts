@@ -1,3 +1,3 @@
-const POST_CONTENT = 'api/blogs';
+export const MUSIC_CONTENT = 'api/music';
 
-export default POST_CONTENT;
+export const getDetailData = (id: string) => `/api/music/${id}`;
