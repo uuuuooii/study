@@ -21,7 +21,10 @@ const Detail = ({ params: { id } }: DetailProps) => {
   }, []);
   console.log(detailData);
   return (
-    <div>Detail</div>
+    <div>
+      <p>{detailData?.title}</p>
+      <p>{detailData?.desc}</p>
+    </div>
   );
 };
 
