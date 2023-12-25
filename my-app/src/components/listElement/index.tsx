@@ -11,7 +11,7 @@ const LestElement = ({ musicData }: LestElementProps) => {
   return (
     <List>
       {musicData.map((item) => (
-        <Item item={item} />
+        <Item item={item} key={item._id} />
       ))}
     </List>
 

@@ -21,7 +21,7 @@ const Main = () => {
   }, []);
 
   return (
-    <div>
+    <main>
       <S.VisualSection>
         <Visual />
       </S.VisualSection>
@@ -31,7 +31,7 @@ const Main = () => {
           <LestElement musicData={musicData} />
         </Inner>
       </section>
-    </div>
+    </main>
   );
 };
 export default Main;
