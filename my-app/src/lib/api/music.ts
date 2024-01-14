@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { MUSIC_CONTENT, getDetailData } from './url';
+import { PostContentPsops } from './dto';
 
 export const getMusicContents = async (): Promise<AxiosResponse> => {
   return axios.get(MUSIC_CONTENT);
@@ -10,4 +11,10 @@ export const getDetailMusicData = async (
   id: string
 ): Promise<AxiosResponse> => {
   return axios.get(getDetailData(id));
+};
+
+export const postMusicData = async (
+  data: PostContentPsops
+): Promise<AxiosResponse> => {
+  return axios.post(MUSIC_CONTENT, data);
 };

@@ -14,7 +14,7 @@ interface DetailProps {
 
 const Detail = ({ params: { id } }: DetailProps) => {
   const [detailData, setDetailData] = useState<PostContentPsops>();
-
+  console.log(detailData);
   useEffect(() => {
     const getDetailData = cache(async () => {
       const res = await getDetailMusicData(id);
@@ -49,15 +49,31 @@ const Detail = ({ params: { id } }: DetailProps) => {
             <GrPlayFill />
             재생
           </S.Button>
-          <S.PlayContent>
-            <S.PlayTitle>
-              1.
-              {detailData?.desc}
-            </S.PlayTitle>
-            <S.Desc>
-              3분 34초
-            </S.Desc>
-          </S.PlayContent>
+          {detailData?.playList ? (
+            <div>
+              {detailData?.playList.map((item, index) => (
+                <>
+                  <S.PlayTitle>
+                    {index}
+                    {item.title}
+                  </S.PlayTitle>
+                  <S.Desc>
+                    {item.playTime}
+                  </S.Desc>
+                </>
+              ))}
+            </div>
+          ) : (
+            <S.PlayContent>
+              <S.PlayTitle>
+                1.
+                {detailData?.desc}
+              </S.PlayTitle>
+              <S.Desc>
+                3분 34초
+              </S.Desc>
+            </S.PlayContent>
+          )}
         </S.PlayWrap>
       </Inner>
     </S.Container>

@@ -12,9 +12,20 @@ const blogSchema = new Schema(
       type: String,
       required: true,
     },
-    image: {
+    img: {
       type: String,
-      required: true,
+    },
+    playTime: {
+      type: String,
+    },
+    year: {
+      type: String,
+    },
+    albumType: {
+      type: String,
+    },
+    playList: {
+      type: [{ title: [], playTime: [] }],
     },
   },
   { timestamps: true }

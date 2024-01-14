@@ -4,8 +4,8 @@ import { ChangeEvent, useState } from 'react';
 
 const useListInput = () => {
   const [inputListValue, setInputListValue] = useState({
-    title: [],
-    playTime: [],
+    title: '' || [],
+    playTime: '' || [],
   });
 
   const onChangeListInput = (e: ChangeEvent<HTMLInputElement>, filed: string) => {
