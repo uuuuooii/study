@@ -14,11 +14,14 @@ export const GET = async () => {
 };
 
 export const POST = async (request: NextRequest) => {
+  // 클라이언트로부터 전송된 JSON 데이터를 추출
   const body = await request.json();
+  // 전송된 데이터를 사용하여 스키마 형식으로 적용
   const newPost = new Post(body);
   try {
     await connect();
 
+    // 새로운 포스트를 데이터베이스에 저장
     await newPost.save();
 
     return new NextResponse('post has been created', {
