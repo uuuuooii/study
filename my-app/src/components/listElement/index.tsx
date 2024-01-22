@@ -5,13 +5,14 @@ import List from './style';
 
 interface LestElementProps {
   musicData: PostContentPsops[];
+  isAdmin?: boolean;
 }
 
-const LestElement = ({ musicData }: LestElementProps) => {
+const LestElement = ({ musicData, isAdmin }: LestElementProps) => {
   return (
     <List>
       {musicData.map((item) => (
-        <Item item={item} key={item._id} />
+        <Item item={item} key={item._id} isAdmin={isAdmin} />
       ))}
     </List>
 

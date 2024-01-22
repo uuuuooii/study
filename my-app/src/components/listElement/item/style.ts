@@ -40,3 +40,15 @@ export const Title = styled.h4`
 export const Desc = styled.h4`
   ${({ theme }) => theme.typography.size.subtitle.s01}
 `;
+
+export const AdminIconWrap = styled.div`
+  display: flex;
+  position: relative;
+`;
+
+export const AdminIcon = styled.picture`
+  position: relative;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+`;

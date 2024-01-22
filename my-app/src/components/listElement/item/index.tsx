@@ -7,15 +7,26 @@ import * as S from './style';
 
 interface ItemProps {
   item: PostContentPsops;
+  isAdmin?: boolean;
 }
 
-const Item = ({ item }: ItemProps) => {
+const Item = ({ item, isAdmin }: ItemProps) => {
   return (
     <li>
       <Link href={`main/${item._id}`}>
         <S.Figure>
           <S.ImageWrap>
             <Image src={item.img} alt="music" width={180} height={180} />
+            {isAdmin && (
+              <S.AdminIconWrap>
+                <S.AdminIcon>
+                  <Image src="/images/svg/editeIcon.svg" alt="thumbnail-image" fill />
+                </S.AdminIcon>
+                <S.AdminIcon>
+                  <Image src="/images/svg/deleteIcon.svg" alt="thumbnail-image" fill />
+                </S.AdminIcon>
+              </S.AdminIconWrap>
+            )}
             <S.Icon>
               <IoMdPlay />
             </S.Icon>

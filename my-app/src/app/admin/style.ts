@@ -2,10 +2,16 @@
 
 import styled from '@emotion/styled';
 
-const Wrap = styled.div`
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+`;
+
+export const Wrap = styled.div`
   display: grid;
   gap: 15px;
   justify-content: center;
   padding-top: 120px;
 `;
-export default Wrap;
