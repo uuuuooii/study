@@ -1,19 +1,16 @@
 'use client';
 
 import React, {
-  ChangeEvent, cache, useEffect, useState
+  ChangeEvent
 } from 'react';
 import useInput from '@/lib/hooks/input/useInput';
 import InputStyle from '@/components/input/style';
 import useListInput from '@/lib/hooks/input/useListInput';
 import * as S from './style';
-import { getMusicContents, postMusicData } from '@/lib/api/music';
-import LestElement from '@/components/listElement';
-import { PostContentPsops } from '@/lib/api/dto';
+import { postMusicData } from '@/lib/api/music';
+import Preview from './preview';
 
 const Admin = () => {
-  const [musicData, setMusicData] = useState<PostContentPsops[]>([]);
-
   const titleInput = useInput();
   const descInput = useInput();
   const imgInput = useInput();
@@ -47,19 +44,10 @@ const Admin = () => {
     }
   };
 
-  useEffect(() => {
-    const getMusicData = cache(async () => {
-      const res = await getMusicContents();
-      setMusicData(res.data);
-    });
-
-    getMusicData();
-  }, []);
   return (
     <S.Container>
-      <div>
-        <LestElement musicData={musicData} isAdmin />
-      </div>
+      <Preview />
+
       <form onSubmit={onSubmit}>
         <S.Wrap>
           <InputStyle
