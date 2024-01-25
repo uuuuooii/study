@@ -41,14 +41,26 @@ export const Desc = styled.h4`
   ${({ theme }) => theme.typography.size.subtitle.s01}
 `;
 
-export const AdminIconWrap = styled.div`
+export const EditButton = styled.div`
   display: flex;
+  justify-content: end;
+  gap: 10px;
   position: relative;
+  margin-bottom: 10px;
 `;
 
-export const AdminIcon = styled.picture`
-  position: relative;
-  width: 20px;
+export const Edit = styled.button`
+  width: 40px;
   height: 20px;
-  cursor: pointer;
+  color: #c0cbff;
+  border: 1px solid #c0cbff;
+  border-radius: 5px;
+`;
+
+export const Delete = styled.button`
+  width: 40px;
+  height: 20px;
+  color: #ff9797;
+  border: 1px solid #ff9797;
+  border-radius: 5px;
 `;

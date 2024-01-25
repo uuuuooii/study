@@ -10,7 +10,6 @@ const blogSchema = new Schema(
     },
     desc: {
       type: String,
-      required: true,
     },
     img: {
       type: String,

@@ -3,7 +3,14 @@ import LestElement from '@/components/listElement';
 import { PostContentPsops } from '@/lib/api/dto';
 import { getMusicContents } from '@/lib/api/music';
 
-const Preview = () => {
+interface PreviewProps {
+  editItem: {
+    selecteItem: PostContentPsops | undefined;
+    onClickSelecteItem: (item: PostContentPsops) => void;
+  };
+}
+
+const Preview = ({ editItem }: PreviewProps) => {
   const [musicData, setMusicData] = useState<PostContentPsops[]>([]);
 
   useEffect(() => {
@@ -16,7 +23,7 @@ const Preview = () => {
   }, []);
   return (
     <div>
-      <LestElement musicData={musicData} isAdmin />
+      <LestElement musicData={musicData} editItem={editItem} isAdmin />
     </div>
   );
 };

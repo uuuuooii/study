@@ -6,13 +6,17 @@ import List from './style';
 interface LestElementProps {
   musicData: PostContentPsops[];
   isAdmin?: boolean;
+  editItem: {
+    selecteItem: PostContentPsops | undefined;
+    onClickSelecteItem: (item: PostContentPsops) => void;
+  };
 }
 
-const LestElement = ({ musicData, isAdmin }: LestElementProps) => {
+const LestElement = ({ musicData, isAdmin, editItem }: LestElementProps) => {
   return (
     <List>
       {musicData.map((item) => (
-        <Item item={item} key={item._id} isAdmin={isAdmin} />
+        <Item item={item} key={item._id} isAdmin={isAdmin} editItem={editItem} />
       ))}
     </List>
 

@@ -35,3 +35,44 @@ export const POST = async (request: NextRequest) => {
     return new NextResponse('Database Error', { status: 500 });
   }
 };
+
+export const PUT = async (request: NextRequest) => {
+  const body = await request.json();
+  console.log('요청 본문:', body);
+  try {
+    await connect();
+
+    const editPost = await Post.findOneAndReplace(
+      { _id: body.id },
+      {
+        _id: body.newId,
+        title: body.title,
+        desc: body.desc,
+        img: body.img,
+        playTime: body.playTime,
+        year: body.year,
+        albumType: body.albumType,
+        playList: [
+          {
+            title: '',
+            playTime: '',
+          },
+        ],
+      }
+    );
+    console.log('editPost', editPost);
+    if (!editPost) {
+      return new NextResponse('Post not found', { status: 404 });
+    }
+
+    return new NextResponse('Put has been created', {
+      status: 201,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
+  } catch (err) {
+    console.error(err);
+    return new NextResponse('Database Error', { status: 500 });
+  }
+};

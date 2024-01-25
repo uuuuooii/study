@@ -18,3 +18,9 @@ export const postMusicData = async (
 ): Promise<AxiosResponse> => {
   return axios.post(MUSIC_CONTENT, data);
 };
+
+export const putMusicData = async (
+  data: PostContentPsops
+): Promise<AxiosResponse> => {
+  return axios.put(MUSIC_CONTENT, data);
+};

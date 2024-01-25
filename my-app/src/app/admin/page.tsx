@@ -7,8 +7,9 @@ import useInput from '@/lib/hooks/input/useInput';
 import InputStyle from '@/components/input/style';
 import useListInput from '@/lib/hooks/input/useListInput';
 import * as S from './style';
-import { postMusicData } from '@/lib/api/music';
+import { postMusicData, putMusicData } from '@/lib/api/music';
 import Preview from './preview';
+import useSelecteItem from '@/lib/hooks/useSelectItem';
 
 const Admin = () => {
   const titleInput = useInput();
@@ -18,9 +19,34 @@ const Admin = () => {
   const yearInput = useInput();
   const albumTypeInput = useInput();
   const listInput = useListInput();
+  const editItem = useSelecteItem();
+  console.log(editItem.selecteItem?.title);
+  const onChangeInput = (
+    e: React.ChangeEvent<HTMLTextAreaElement>,
+    name: string
+  ) => {
+    if (editItem) {
+      if (name === 'title') {
+        editItem.selecteItem.title = e.currentTarget.value;
+      }
+      if (name === 'desc') {
+        editItem.selecteItem.desc = e.currentTarget.value;
+      }
+      if (name === 'img') {
+        editItem.selecteItem.img = e.currentTarget.value;
+      }
+      if (name === 'playTime') {
+        editItem.selecteItem.playTime = e.currentTarget.value;
+      }
+      if (name === 'year') {
+        editItem.selecteItem.year = e.currentTarget.value;
+      }
+      if (name === 'albumType') {
+        editItem.selecteItem.albumType = e.currentTarget.value;
+      }
+    }
+  };
 
-  // console.log(listInput.inputListValue);
-  // console.log(yearInput.inputValue);
 
   const onSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -44,45 +70,69 @@ const Admin = () => {
     }
   };
 
+  const onSubmitEdit = async (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const editData = {
+      id: editItem.selecteItem._id,
+      title: editItem.selecteItem.title,
+      desc: editItem.selecteItem.desc,
+      img: editItem.selecteItem.img,
+      playTime: editItem.selecteItem.playTime,
+      year: editItem.selecteItem.year,
+      albumType: editItem.selecteItem.albumType,
+      playList: [{
+        title: listInput.inputListValue.title,
+        playTime: listInput.inputListValue.playTime
+      }]
+    };
+
+    const res = await putMusicData(editData);
+    if (res.data) {
+      alert('수정되었습니다');
+    }
+  };
+
+  const handleSubmit = editItem.selecteItem ? onSubmitEdit : onSubmit;
   return (
     <S.Container>
-      <Preview />
+      <Preview editItem={editItem} />
 
-      <form onSubmit={onSubmit}>
+      <form onSubmit={handleSubmit}>
         <S.Wrap>
           <InputStyle
-            value={titleInput.inputValue}
-            onChange={titleInput.onChangeInput}
+            value={editItem?.selecteItem?.title || titleInput.inputValue}
+            onChange={(e) => { onChangeInput(e, 'title'); titleInput.onChangeInput(e); }}
             type="text"
             placeholder="title"
           />
           <InputStyle
-            value={descInput.inputValue}
-            onChange={descInput.onChangeInput}
+            value={editItem?.selecteItem?.desc || descInput.inputValue}
+            onChange={(e) => { onChangeInput(e, 'desc'); descInput.onChangeInput(e); }}
             type="text"
             placeholder="desc"
           />
           <InputStyle
-            value={imgInput.inputValue}
-            onChange={imgInput.onChangeInput}
+            value={editItem?.selecteItem?.img || imgInput.inputValue}
+            onChange={(e) => { onChangeInput(e, 'img'); imgInput.onChangeInput(e); }}
             type="text"
             placeholder="img"
           />
           <InputStyle
-            value={playTimeInput.inputValue}
-            onChange={playTimeInput.onChangeInput}
+            value={editItem?.selecteItem?.playTime || playTimeInput.inputValue}
+            onChange={(e) => { onChangeInput(e, 'playTime'); playTimeInput.onChangeInput(e); }}
             type="text"
             placeholder="playTime"
           />
           <InputStyle
-            value={albumTypeInput.inputValue}
-            onChange={albumTypeInput.onChangeInput}
+            value={editItem?.selecteItem?.albumType || albumTypeInput.inputValue}
+            onChange={(e) => { onChangeInput(e, 'albumType'); albumTypeInput.onChangeInput(e); }}
             type="text"
             placeholder="albumType"
           />
           <InputStyle
-            value={yearInput.inputValue}
-            onChange={yearInput.onChangeInput}
+            value={editItem?.selecteItem?.year || yearInput.inputValue}
+            onChange={(e) => { onChangeInput(e, 'year'); yearInput.onChangeInput(e); }}
             type="text"
             placeholder="year"
           />
@@ -98,7 +148,7 @@ const Admin = () => {
             type="text"
             placeholder="playList : playTime"
           />
-          <button type="submit">전송</button>
+          <S.Submit type="submit">전송</S.Submit>
         </S.Wrap>
       </form>
     </S.Container>

@@ -8,25 +8,28 @@ import * as S from './style';
 interface ItemProps {
   item: PostContentPsops;
   isAdmin?: boolean;
+  editItem?: {
+    selecteItem: PostContentPsops | undefined;
+    onClickSelecteItem: (item: PostContentPsops) => void;
+  };
 }
 
-const Item = ({ item, isAdmin }: ItemProps) => {
+const Item = ({ item, isAdmin, editItem }: ItemProps) => {
+  console.log(editItem);
+
   return (
     <li>
+      {isAdmin && (
+        <S.EditButton>
+          <S.Edit onClick={() => editItem?.onClickSelecteItem(item)}>수정</S.Edit>
+          <S.Delete>삭제</S.Delete>
+        </S.EditButton>
+      )}
       <Link href={`main/${item._id}`}>
         <S.Figure>
           <S.ImageWrap>
             <Image src={item.img} alt="music" width={180} height={180} />
-            {isAdmin && (
-              <S.AdminIconWrap>
-                <S.AdminIcon>
-                  <Image src="/images/svg/editeIcon.svg" alt="thumbnail-image" fill />
-                </S.AdminIcon>
-                <S.AdminIcon>
-                  <Image src="/images/svg/deleteIcon.svg" alt="thumbnail-image" fill />
-                </S.AdminIcon>
-              </S.AdminIconWrap>
-            )}
+
             <S.Icon>
               <IoMdPlay />
             </S.Icon>
