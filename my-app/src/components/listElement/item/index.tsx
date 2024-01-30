@@ -12,9 +12,10 @@ interface ItemProps {
     selecteItem: PostContentPsops | undefined;
     onClickSelecteItem: (item: PostContentPsops) => void;
   };
+  handleDelete: (id: string) => Promise<void>;
 }
 
-const Item = ({ item, isAdmin, editItem }: ItemProps) => {
+const Item = ({ item, isAdmin, editItem, handleDelete }: ItemProps) => {
   console.log(editItem);
 
   return (
@@ -22,7 +23,7 @@ const Item = ({ item, isAdmin, editItem }: ItemProps) => {
       {isAdmin && (
         <S.EditButton>
           <S.Edit onClick={() => editItem?.onClickSelecteItem(item)}>수정</S.Edit>
-          <S.Delete>삭제</S.Delete>
+          <S.Delete onClick={() => handleDelete && `${handleDelete(String(item._id))}`}>삭제</S.Delete>
         </S.EditButton>
       )}
       <Link href={`main/${item._id}`}>

@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { MUSIC_CONTENT, getDetailData } from './url';
+import { MUSIC_CONTENT, getDetailData, musicDetail } from './url';
 import { PostContentPsops } from './dto';
 
 export const getMusicContents = async (): Promise<AxiosResponse> => {
@@ -23,4 +23,8 @@ export const putMusicData = async (
   data: PostContentPsops
 ): Promise<AxiosResponse> => {
   return axios.put(MUSIC_CONTENT, data);
+};
+
+export const deleteMusicData = async (id: string): Promise<AxiosResponse> => {
+  return axios.delete(musicDetail(id));
 };

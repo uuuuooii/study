@@ -8,9 +8,10 @@ interface PreviewProps {
     selecteItem: PostContentPsops | undefined;
     onClickSelecteItem: (item: PostContentPsops) => void;
   };
+  handleDelete: (id: string) => Promise<void>;
 }
 
-const Preview = ({ editItem }: PreviewProps) => {
+const Preview = ({ editItem, handleDelete }: PreviewProps) => {
   const [musicData, setMusicData] = useState<PostContentPsops[]>([]);
 
   useEffect(() => {
@@ -23,7 +24,7 @@ const Preview = ({ editItem }: PreviewProps) => {
   }, []);
   return (
     <div>
-      <LestElement musicData={musicData} editItem={editItem} isAdmin />
+      <LestElement musicData={musicData} editItem={editItem} handleDelete={handleDelete} isAdmin />
     </div>
   );
 };

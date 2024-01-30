@@ -7,7 +7,7 @@ import useInput from '@/lib/hooks/input/useInput';
 import InputStyle from '@/components/input/style';
 import useListInput from '@/lib/hooks/input/useListInput';
 import * as S from './style';
-import { postMusicData, putMusicData } from '@/lib/api/music';
+import { deleteMusicData, postMusicData, putMusicData } from '@/lib/api/music';
 import Preview from './preview';
 import useSelecteItem from '@/lib/hooks/useSelectItem';
 
@@ -20,12 +20,12 @@ const Admin = () => {
   const albumTypeInput = useInput();
   const listInput = useListInput();
   const editItem = useSelecteItem();
-  console.log(editItem.selecteItem?.title);
+
   const onChangeInput = (
-    e: React.ChangeEvent<HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement>,
     name: string
   ) => {
-    if (editItem) {
+    if (editItem.selecteItem) {
       if (name === 'title') {
         editItem.selecteItem.title = e.currentTarget.value;
       }
@@ -46,7 +46,6 @@ const Admin = () => {
       }
     }
   };
-
 
   const onSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -73,30 +72,41 @@ const Admin = () => {
   const onSubmitEdit = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const editData = {
-      id: editItem.selecteItem._id,
-      title: editItem.selecteItem.title,
-      desc: editItem.selecteItem.desc,
-      img: editItem.selecteItem.img,
-      playTime: editItem.selecteItem.playTime,
-      year: editItem.selecteItem.year,
-      albumType: editItem.selecteItem.albumType,
-      playList: [{
-        title: listInput.inputListValue.title,
-        playTime: listInput.inputListValue.playTime
-      }]
-    };
+    if (editItem.selecteItem) {
+      const editData = {
+        id: editItem.selecteItem._id,
+        title: editItem.selecteItem.title,
+        desc: editItem.selecteItem.desc,
+        img: editItem.selecteItem.img,
+        playTime: editItem.selecteItem.playTime,
+        year: editItem.selecteItem.year,
+        albumType: editItem.selecteItem.albumType,
+        playList: [{
+          title: listInput.inputListValue.title,
+          playTime: listInput.inputListValue.playTime
+        }]
+      };
 
-    const res = await putMusicData(editData);
-    if (res.data) {
-      alert('수정되었습니다');
+      const res = await putMusicData(editData);
+      if (res.data) {
+        alert('수정되었습니다');
+      }
     }
   };
 
   const handleSubmit = editItem.selecteItem ? onSubmitEdit : onSubmit;
+
+  const handleDelete = async (id: string) => {
+    await deleteMusicData(id);
+    alert('삭제 되었습니다');
+  };
+
   return (
     <S.Container>
-      <Preview editItem={editItem} />
+      <Preview
+        handleDelete={handleDelete}
+        editItem={editItem}
+      />
 
       <form onSubmit={handleSubmit}>
         <S.Wrap>

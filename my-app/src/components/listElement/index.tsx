@@ -10,13 +10,22 @@ interface LestElementProps {
     selecteItem: PostContentPsops | undefined;
     onClickSelecteItem: (item: PostContentPsops) => void;
   };
+  handleDelete: (id: string) => Promise<void>;
 }
 
-const LestElement = ({ musicData, isAdmin, editItem }: LestElementProps) => {
+const LestElement = ({
+  musicData, isAdmin, editItem, handleDelete
+}: LestElementProps) => {
   return (
     <List>
       {musicData.map((item) => (
-        <Item item={item} key={item._id} isAdmin={isAdmin} editItem={editItem} />
+        <Item
+          item={item}
+          key={item._id}
+          isAdmin={isAdmin}
+          editItem={editItem}
+          handleDelete={handleDelete}
+        />
       ))}
     </List>
 

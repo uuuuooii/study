@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import connect from '@/lib/db';
 import Post from '@/lib/db/schema';
 
-// eslint-disable-next-line import/prefer-default-export
 export const GET = async (
   request: NextRequest,
   { params }: { params: { id: string } }
@@ -16,5 +15,22 @@ export const GET = async (
     return new NextResponse(JSON.stringify(blogs), { status: 200 });
   } catch (error) {
     return new NextResponse('server error', { status: 500 });
+  }
+};
+
+export const DELETE = async (
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) => {
+  const { id } = params;
+
+  try {
+    await connect();
+
+    await Post.findByIdAndDelete(id);
+
+    return new NextResponse('Post has been deleted', { status: 200 });
+  } catch (err) {
+    return new NextResponse('Database Error', { status: 500 });
   }
 };
