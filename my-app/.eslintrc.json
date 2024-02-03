@@ -16,6 +16,7 @@
     "operator-linebreak": "off",
     "no-underscore-dangle": "off",
     "comma-dangle": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "no-unused-vars": "off"
   }
 }

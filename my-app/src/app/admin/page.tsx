@@ -6,10 +6,10 @@ import React, {
 import useInput from '@/lib/hooks/input/useInput';
 import InputStyle from '@/components/input/style';
 import useListInput from '@/lib/hooks/input/useListInput';
-import * as S from './style';
 import { deleteMusicData, postMusicData, putMusicData } from '@/lib/api/music';
 import Preview from './preview';
 import useSelecteItem from '@/lib/hooks/useSelectItem';
+import * as S from './style';
 
 const Admin = () => {
   const titleInput = useInput();

@@ -8,11 +8,7 @@ const useSelecteItem = () => {
     setSelecteItem(item);
   };
 
-  const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setSelecteItem(e.target.value);
-  };
-
-  return { selecteItem, onClickSelecteItem, onChangeInput };
+  return { selecteItem, onClickSelecteItem };
 };
 
 export default useSelecteItem;
