@@ -2,10 +2,10 @@
 
 import React, { cache, useEffect, useState } from 'react';
 import { getMusicContents } from '@/lib/api/music';
-import Visual from './visual';
 import LestElement from '@/components/listElement';
 import Inner from '@/components/inner';
 import { PostContentPsops } from '@/lib/api/dto';
+import Visual from './visual';
 import * as S from './style';
 
 const Main = () => {

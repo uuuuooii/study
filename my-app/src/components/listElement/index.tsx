@@ -1,16 +1,16 @@
 import React from 'react';
-import Item from './item';
 import { PostContentPsops } from '@/lib/api/dto';
+import Item from './item';
 import List from './style';
 
 interface LestElementProps {
   musicData: PostContentPsops[];
   isAdmin?: boolean;
-  editItem: {
+  editItem?: {
     selecteItem: PostContentPsops | undefined;
     onClickSelecteItem: (item: PostContentPsops) => void;
   };
-  handleDelete: (id: string) => Promise<void>;
+  handleDelete?: (id: string) => Promise<void>;
 }
 
 const LestElement = ({

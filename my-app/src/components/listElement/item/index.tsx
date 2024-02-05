@@ -12,10 +12,12 @@ interface ItemProps {
     selecteItem: PostContentPsops | undefined;
     onClickSelecteItem: (item: PostContentPsops) => void;
   };
-  handleDelete: (id: string) => Promise<void>;
+  handleDelete?: (id: string) => Promise<void>;
 }
 
-const Item = ({ item, isAdmin, editItem, handleDelete }: ItemProps) => {
+const Item = ({
+  item, isAdmin, editItem, handleDelete
+}: ItemProps) => {
   console.log(editItem);
 
   return (
