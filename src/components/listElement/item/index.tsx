@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { IoMdPlay } from 'react-icons/io';
 import Link from 'next/link';
-import { PostContentPsops } from '@/lib/api/dto';
+import { PostContentPsops } from '../../../lib/api/dto';
 import * as S from './style';
 
 interface ItemProps {

@@ -3,9 +3,9 @@
 import React, { useState, useEffect, cache } from 'react';
 import Image from 'next/image';
 import { GrPlayFill } from 'react-icons/gr';
-import { PostContentPsops } from '@/lib/api/dto';
-import { getDetailMusicData } from '@/lib/api/music';
-import Inner from '@/components/inner';
+import { PostContentPsops } from '../../../lib/api/dto';
+import { getDetailMusicData } from '../../../lib/api/music';
+import Inner from '../../../components/inner';
 import * as S from './style';
 
 interface DetailProps {

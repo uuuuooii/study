@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import mediaQuery from '@/lib/styles/theme/mediaQuery';
+import mediaQuery from '../../../lib/styles/theme/mediaQuery';
 
 export const Container = styled.main`
   padding-top: 100px;

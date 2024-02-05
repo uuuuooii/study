@@ -1,5 +1,5 @@
 import React from 'react';
-import { PostContentPsops } from '@/lib/api/dto';
+import { PostContentPsops } from '../../lib/api/dto';
 import Item from './item';
 import List from './style';
 
