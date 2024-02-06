@@ -3,11 +3,11 @@
 import React, {
   ChangeEvent
 } from 'react';
-import { deleteMusicData, postMusicData, putMusicData } from '../../lib/api/music';
-import useInput from '../../lib/hooks/input/useInput';
-import useSelecteItem from '../../lib/hooks/useSelectItem';
-import InputStyle from '../../components/input/style';
-import useListInput from '../../lib/hooks/input/useListInput';
+import useInput from '@/lib/hooks/input/useInput';
+import useSelecteItem from '@/lib/hooks/useSelectItem';
+import InputStyle from '@/components/input/style';
+import useListInput from '@/lib/hooks/input/useListInput';
+import { deleteMusicData, postMusicData, putMusicData } from '@/lib/api/music';
 import Preview from './preview';
 import * as S from './style';
 

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import connect from '../../../lib/db';
-import Post from '../../../lib/db/schema';
+import connect from '@/lib/db';
+import Post from '@/lib/db/schema';
 
 export const GET = async () => {
   try {
