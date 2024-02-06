@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import React from 'react';
 import { Analytics } from '@vercel/analytics/react';
-import EmotionProvider from '../lib/provider/emotion';
-import Header from '../components/header';
+import EmotionProvider from '@/lib/provider/emotion';
+import Header from '@/components/header';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
