@@ -14,7 +14,7 @@ interface DetailProps {
 
 const Detail = ({ params: { id } }: DetailProps) => {
   const [detailData, setDetailData] = useState<PostContentPsops>();
-  console.log(detailData);
+
   useEffect(() => {
     const getDetailData = cache(async () => {
       const res = await getDetailMusicData(id);

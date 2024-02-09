@@ -18,8 +18,6 @@ interface ItemProps {
 const Item = ({
   item, isAdmin, editItem, handleDelete
 }: ItemProps) => {
-  console.log(editItem);
-
   return (
     <li>
       {isAdmin && (
