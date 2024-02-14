@@ -3,7 +3,7 @@ import React from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import EmotionProvider from '@/lib/provider/emotion';
 import Header from '@/components/header';
-import { GoogleTagManager } from '@next/third-parties/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,7 +21,7 @@ export default function RootLayout({
       <body>
         <EmotionProvider>
           <Header />
-          <GoogleTagManager gtmId="G-V7EEJ7FY6J" />
+          <GoogleAnalytics gaId="G-V7EEJ7FY6J" />
           {children}
           <Analytics />
         </EmotionProvider>
