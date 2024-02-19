@@ -3,6 +3,7 @@ import React from 'react';
 import { IoMdPlay } from 'react-icons/io';
 import Link from 'next/link';
 import { PostContentPsops } from '@/lib/api/dto';
+import { sendGAEvent } from '@next/third-parties/google';
 import * as S from './style';
 
 interface ItemProps {
@@ -26,7 +27,13 @@ const Item = ({
           <S.Delete onClick={() => handleDelete && `${handleDelete(String(item._id))}`}>삭제</S.Delete>
         </S.EditButton>
       )}
-      <Link href={`main/${item._id}`}>
+      <Link
+        href={`main/${item._id}`}
+        onClick={() => {
+          console.log('클릭');
+          sendGAEvent({ event: 'buttonClicked', value: 'xyz' });
+        }}
+      >
         <S.Figure>
           <S.ImageWrap>
             <Image src={item.img} alt="music" width={180} height={180} />

@@ -18,11 +18,7 @@ const LestElement = ({
   musicData, isAdmin, editItem, handleDelete
 }: LestElementProps) => {
   return (
-    <List onClick={() => {
-      console.log('클릭');
-      sendGAEvent({ event: 'buttonClicked', value: 'xyz' });
-    }}
-    >
+    <List>
       {musicData.map((item) => (
         <Item
           item={item}
