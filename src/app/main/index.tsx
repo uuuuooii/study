@@ -5,6 +5,7 @@ import { getMusicContents } from '@/lib/api/music';
 import LestElement from '@/components/listElement';
 import Inner from '@/components/inner';
 import { PostContentPsops } from '@/lib/api/dto';
+import { sendGAEvent } from '@next/third-parties/google';
 import Visual from './visual';
 import * as S from './style';
 
@@ -27,7 +28,7 @@ const Main = () => {
       </S.VisualSection>
       <section>
         <Inner>
-          <S.Title>추천 앨범</S.Title>
+          <S.Title onClick={() => sendGAEvent({ event: 'buttonClicked', value: 'xyz' })}>추천 앨범</S.Title>
           <LestElement musicData={musicData} />
         </Inner>
       </section>
