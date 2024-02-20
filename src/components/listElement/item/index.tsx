@@ -33,6 +33,7 @@ const Item = ({
           console.log('클릭');
           sendGAEvent({ event: 'buttonClicked', value: 'xyz' });
         }}
+        className="click"
       >
         <S.Figure>
           <S.ImageWrap>
