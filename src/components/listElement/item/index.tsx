@@ -38,7 +38,6 @@ const Item = ({
         <S.Figure>
           <S.ImageWrap>
             <Image src={item.img} alt="music" width={180} height={180} />
-
             <S.Icon>
               <IoMdPlay />
             </S.Icon>

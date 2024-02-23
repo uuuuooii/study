@@ -1,6 +1,5 @@
 import React from 'react';
 import { PostContentPsops } from '@/lib/api/dto';
-import { sendGAEvent } from '@next/third-parties/google';
 import Item from './item';
 import List from './style';
 
