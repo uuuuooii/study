@@ -28,7 +28,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "public/images/visual/music/svg/playSvg.jsx"
+    "public/images/visual/music/svg/playSvg.jsx",
+    "src/lib/gtag/index.ts"
   ],
   "exclude": ["node_modules"]
 }

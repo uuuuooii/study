@@ -28,7 +28,6 @@ const LestElement = ({
         />
       ))}
     </List>
-
   );
 };
 

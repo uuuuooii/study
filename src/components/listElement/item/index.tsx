@@ -4,6 +4,7 @@ import { IoMdPlay } from 'react-icons/io';
 import Link from 'next/link';
 import { PostContentPsops } from '@/lib/api/dto';
 import { sendGAEvent } from '@next/third-parties/google';
+import { event } from '@/lib/gtag';
 import * as S from './style';
 
 interface ItemProps {
@@ -32,6 +33,11 @@ const Item = ({
         onClick={() => {
           console.log('클릭');
           sendGAEvent({ event: 'buttonClicked', value: 'xyz' });
+          event({
+            action: '액션 이름',
+            category: '카케고리 이름',
+            label: '라벨 이름',
+          });
         }}
         className="click"
       >
