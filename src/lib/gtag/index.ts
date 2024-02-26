@@ -5,7 +5,7 @@ interface EventProps {
   value?: string;
 }
 
-export const GA_TRACKING_ID = 'G-XXXX아이디'; // 측정ID 설정: .env 파일로 관리해도된다.
+export const GA_TRACKING_ID = 'G-V7EEJ7FY6J'; // 측정ID 설정: .env 파일로 관리해도된다.
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: string) => {
