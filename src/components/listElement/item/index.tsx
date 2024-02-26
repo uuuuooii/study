@@ -34,7 +34,7 @@ const Item = ({
           console.log('클릭');
           sendGAEvent({ event: 'buttonClicked', value: 'xyz' });
           event({
-            action: '액션 이름',
+            action: 'listElement 클릭',
             category: '카케고리 이름',
             label: '라벨 이름',
           });
